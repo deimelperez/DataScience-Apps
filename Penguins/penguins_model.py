@@ -1,6 +1,8 @@
 import pickle
 from sklearn.ensemble import RandomForestClassifier
 import pandas as pd
+
+
 penguins = pd.read_csv('Penguins/penguins_cleaned.csv')
 
 # Ordinal feature encoding

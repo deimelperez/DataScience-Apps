@@ -3,6 +3,8 @@ import pandas as pd
 from sklearn import datasets
 from sklearn.ensemble import RandomForestClassifier
 from PIL import Image
+import pickle
+
 
 Setosa = Image.open('Setosa.jpg')
 Versicolour = Image.open('Versicolor.jpg')
@@ -37,13 +39,8 @@ df = user_input_features()
 st.subheader('User Input parameters')
 st.write(df)
 
-iris = datasets.load_iris()
-X = iris.data
-Y = iris.target
 
-clf = RandomForestClassifier()
-
-clf.fit(X, Y)
+clf = pickle.load(open('penguins_clf.pkl', 'rb'))
 
 prediction = clf.predict(df)
 prediction_proba = clf.predict_proba(df)
